@@ -1,5 +1,31 @@
 section.content
-  //- .content__container
-  //-   picture
-  //-     img(src="./images/night-city-desktop.jpg" alt="")
-  .content__hover xxx
+
+  img(src="./images/textCityMask.svg", alt="").preloaded-image
+
+  .content__container
+    picture
+      img(src="./images/night-city-desktop.jpg" alt="")
+
+  .container2
+
+  .container3
+    picture
+      img(src="./images/night-city-2-desktop.jpg" alt="").container3__bg
+    picture
+      img(src="./images/textCityText.svg" alt="").container3__text
+
+  //- .content__hover
+  //-   .content__stub
+  //-     svg.content__hover-text
+  //-       use(href="#textCity")
+  //-   .content__stub-black
+
+section.trigger
+
+.direction-pointer
+  svg.direction-pointer__shevron.top
+    use(href="#icon-shevron-to-bottom")
+  svg.direction-pointer__shevron.middle
+    use(href="#icon-shevron-to-bottom")
+  svg.direction-pointer__shevron.bottom
+    use(href="#icon-shevron-to-bottom")

@@ -6,8 +6,17 @@
   overflow: hidden;
 }
 
-.content__container {
+.preloaded-image {
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: auto;
+  z-index: 100;
+}
+
+.content__container {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -16,29 +25,132 @@
   img {
     display: block;
     width: 100%;
+    height: auto;
     height: 100%;
     object-fit: cover;
     object-position: center center;
+    // clip-path: url(#clipPath);
+    // mask: url(#c1) 50px 30px/100px 100px repeat-x exclude;
   }
 }
 
-.content__hover {
-  position: absolute;
+.container2 {
+  position: fixed;
   top: 0;
-  // left: -200vw;
   left: 0;
-  // width: 300vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   height: 100%;
-  background-image: url("./images/night-city-desktop.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-clip: text;
-  font-size: 12.5rem;
-  line-height: 1;
-  color: transparent;
+  background-color: #fff;
+}
+
+.container3 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.container3-masked {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mask: url(/images/textCityMask.svg) no-repeat;
+  mask-size: auto 100vh;
+  mask-position: center center;
+}
+
+.container3__bg {
+  display: block;
+  width: 100%;
+  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.container3__text {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 150vh);
+  height: 100vh;
+  width: 300vh;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(1.5);
+  transform-origin: center center;
+}
+
+// .content__hover {
+//   position: fixed;
+//   top: 0;
+//   left: -100vw;
+//   display: flex;
+//   width: 200vw;
+//   height: 100vh;
+// }
+
+// .content__hover-poligon {
+//   width: calc((100vw - 100vh) / 2);
+//   height: 100vh;
+//   background-color: #000000;
+// }
+
+// .content__stub {
+//   position: relative;
+//   width: 100vw;
+//   height: 100vh;
+//   overflow: hidden;
+// }
+
+// .content__stub-black {
+//   width: 100vw;
+//   height: 100vh;
+//   background-color: #000000;
+// }
+
+// .content__hover-text {
+//   position: absolute;
+//   top: 0;
+//   left: calc(50% - 150vh);
+//   display: block;
+//   width: 300vh;
+//   height: 100vh;
+// }
+
+// SECTION TRIGGER
+.trigger {
+  width: 100%;
+  height: 100vh;
+}
+
+// DIRECTION
+.direction-pointer {
+  position: fixed;
+  width: 3.75rem;
+  height: 5.625rem;
+  left: 50%;
+  bottom: 0.625rem;
+}
+
+.direction-pointer__shevron {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 3.75rem;
+  height: 1.875rem;
+
+  &.top {
+    top: 0;
+  }
+
+  &.middle {
+    top: 0.9375rem;
+  }
+
+  &.bottom {
+    top: 1.875rem;
+  }
 }

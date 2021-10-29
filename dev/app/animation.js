@@ -123,3 +123,47 @@ if (document.querySelector(".animation-page")) {
 
   // MotionPathHelper.create(image51);
 }
+
+if (document.querySelector(".direction-pointer")) {
+  const chevron1 = ".direction-pointer__shevron.top";
+  const chevron2 = ".direction-pointer__shevron.middle";
+  const chevron3 = ".direction-pointer__shevron.bottom";
+  let timeLine = gsap.timeline();
+
+  timeLine
+    .from(chevron1, { autoAlpha: 0, duration: 0.25, delay: 0.15 })
+    .to(chevron1, { autoAlpha: 1, duration: 0.25 })
+    .to(chevron1, { autoAlpha: 0, duration: 0.25 })
+    .from(chevron2, { autoAlpha: 0, duration: 0.25, delay: "-=0.5" })
+    .to(chevron2, { autoAlpha: 1, duration: 0.25 })
+    .to(chevron2, { autoAlpha: 0, duration: 0.25 })
+    .from(chevron3, { autoAlpha: 0, duration: 0.25, delay: "-=0.5" })
+    .to(chevron3, { autoAlpha: 1, duration: 0.25 })
+    .to(chevron3, { autoAlpha: 0, duration: 0.25 })
+    .repeat(-1);
+}
+
+if (document.querySelector(".container3")) {
+  const trigger = ".trigger";
+  const container2 = ".container2";
+  const container3 = ".container3";
+  const text = ".container3__text";
+
+  let timeLine = gsap.timeline({
+    scrollTrigger: {
+      trigger: trigger,
+      markers: true,
+      pin: true, // pin the trigger element while active
+      start: "top 95%", // when the top of the trigger hits the top of the viewport
+      end: "top -200%", // end after scrolling 500px beyond the start
+      scrub: 1 // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+    }
+  });
+
+  timeLine
+    .to(text, { scale: 1, autoAlpha: 1, duration: 1, ease: Linear.easeNone })
+    .to(text, { autoAlpha: 1, duration: 1, ease: Linear.easeNone })
+    .set(container3, { className: "+=container3-masked" });
+  // .to(container3, { left: "0", duration: 1, ease: Linear.easeNone })
+  // .to(container2, { scale: 20, x: "-65%", duration: 2, delay: 0.25 });
+}
